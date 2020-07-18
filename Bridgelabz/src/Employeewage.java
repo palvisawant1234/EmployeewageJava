@@ -1,22 +1,25 @@
 
 public class Employeewage 
 {
-	public static void main(String[] args) 
-	{
-		System.out.println("Welcome to Employee Wage Computation");
-		int PART_TIME=1;
-		int FULL_TIME=2;
-		int EMP_WAGE_PER_HR=20;
-		int empHrs=0;
-		int empWage=0;
-		double empCheck=Math.floor(Math.random()*10)%3;
-		if(empCheck==FULL_TIME)
-			empHrs=8;
-		else if(empCheck==PART_TIME)
-			empHrs=4;
-		else
-			empHrs=0;
-		empWage=empHrs*EMP_WAGE_PER_HR;
-		System.out.println("Daily Employee Wage:"+empWage);
-	}
+		public static void main(String[] args)
+		{
+			int EMP_WAGE_PER_HR=20;
+			int empHrs=0;
+			int empWage=0;
+			System.out.println("Welcome to Employee Wage Computation");
+			int empCheck=(int) Math.floor(Math.random()*10)%3;
+			switch(empCheck)
+			{
+			case 1:
+				empHrs=4;
+				break;
+			case 2:
+				empHrs=8;
+				break;
+			default:
+				empHrs=0;
+			}
+			empWage=empHrs*EMP_WAGE_PER_HR;
+			System.out.println("Todays Employee Wage:"+empWage);
+		}
 }
