@@ -5,9 +5,9 @@ public class Employeewage
 	public static final int FULL_TIME=2;
 	public static final int EMP_WAGE_PER_HR=20;
 	public static final int NUM_OF_WORKING_DAYS=20;
-    public static final int MAX_HRS_IN_MONTH=100;
+	public static final int MAX_HRS_IN_MONTH=100;
     
-    public static int computeEmpWage()
+	public static int computeEmpWage()
 	{
 		int empHrs=0;
 		int totalEmpHrs=0;
