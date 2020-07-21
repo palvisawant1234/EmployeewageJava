@@ -1,9 +1,10 @@
+
 public class Employeewage 
 {
 	public static final int PART_TIME=1;
 	public static final int FULL_TIME=2;
 	
-    	private static String company;
+	private static String company;
 	private static int fullDayHour;
 	private static int EMP_WAGE_PER_HR;
 	private static int MAX_HRS_IN_MONTH;
@@ -18,7 +19,7 @@ public class Employeewage
 		this.NUM_OF_WORKING_DAYS = NUM_OF_WORKING_DAYS;
 	}
     
-    	public static int computeEmpWage()
+	public static String computeEmpWage()
 	{
 		int empHrs=0;
 		int totalEmpHrs=0;
@@ -47,19 +48,15 @@ public class Employeewage
 			System.out.println("Day:"+totalWorkingDays+"  Employee Hours:"+empHrs+"  Employee wage: "+empWage);
 		}
 		totalEmpWage=totalEmpHrs*EMP_WAGE_PER_HR;
-		System.out.println();
-		System.out.println("Total Employee Hours:"+totalEmpHrs+"	 Total Employee Wage:"+totalEmpWage);
-		System.out.println();
-		return totalEmpWage;
-	}
-	
-    	public static void main(String[] args)
+    		return "Total Employee Hours:"+totalEmpHrs+"	 Total Employee Wage:"+totalEmpWage;
+	} 
+	public static void main(String[] args)
 	{
-		Employeewage company1 = new Employeewage("DMart", 20, 10, 95, 25);
-		company1.computeEmpWage();
-		Employeewage company2 = new Employeewage("Reliance", 24, 8, 120, 30);
-		company2.computeEmpWage();
-		Employeewage company3 = new Employeewage("Big Bazaar", 18, 9, 120, 26);
-		company3.computeEmpWage();
+		Employeewage DMart = new Employeewage("DMart", 20, 10, 100, 25);
+		System.out.println(DMart.computeEmpWage());
+		Employeewage Reliance = new Employeewage("Reliance", 24, 8, 120, 30);
+        	System.out.println(Reliance.computeEmpWage());
+		Employeewage Walmart = new Employeewage("Walmart", 18, 9, 120, 26);
+		System.out.println(Walmart.computeEmpWage());
 	}
 }
