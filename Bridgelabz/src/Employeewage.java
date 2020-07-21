@@ -1,3 +1,4 @@
+import java.util.*;
 class Companyemployeewage 
 {
 	public static final int PART_TIME=1;
@@ -48,6 +49,7 @@ class Companyemployeewage
 			}
 			totalEmpHrs+=empHrs;
 			empWage=empHrs*EMP_WAGE_PER_HR;
+			
 		}
 		totalEmpWage=totalEmpHrs*EMP_WAGE_PER_HR;
     		return totalEmpWage;
@@ -56,15 +58,15 @@ class Companyemployeewage
 
 public class Employeewage 
 {
-	public static Companyemployeewage companyWage[] = new Companyemployeewage[3];
-
-    	public static void main(String[] args)
+	public static ArrayList <Integer> company = new ArrayList <Integer>();
+	public static void main(String args[])
 	{
-    		companyWage[0] = new Companyemployeewage("DMart", 20, 9, 110, 26);
-		System.out.println(companyWage[0].getCompany()+" : "+companyWage[0].computeEmpWage());
-		companyWage[1] = new Companyemployeewage("Reliance", 24, 8, 135, 20);
-		System.out.println(companyWage[1].getCompany()+" : "+companyWage[1].computeEmpWage());
-		companyWage[2] = new Companyemployeewage("Walmart", 20, 10, 120, 26);
-		System.out.println(companyWage[2].getCompany()+" : "+companyWage[2].computeEmpWage());
+		Companyemployeewage company1 = new Companyemployeewage("DMart", 20, 6, 110, 26);
+		Companyemployeewage company2 = new Companyemployeewage("Reliance", 24, 8, 135, 20);
+		Companyemployeewage company3 = new Companyemployeewage("Walmart", 20, 10, 120, 26);
+		company.add(company1.computeEmpWage());
+		company.add(company2.computeEmpWage());
+		company.add(company3.computeEmpWage());
+		System.out.println(company);
 	}
 }
