@@ -1,4 +1,4 @@
-
+import java.util.*;
 public class Employeewage 
 {
 	public static final int PART_TIME=1;
@@ -19,7 +19,7 @@ public class Employeewage
 		this.NUM_OF_WORKING_DAYS = NUM_OF_WORKING_DAYS;
 	}
     
-	public static String computeEmpWage()
+	public static int computeEmpWage()
 	{
 		int empHrs=0;
 		int totalEmpHrs=0;
@@ -48,15 +48,21 @@ public class Employeewage
 			System.out.println("Day:"+totalWorkingDays+"  Employee Hours:"+empHrs+"  Employee wage: "+empWage);
 		}
 		totalEmpWage=totalEmpHrs*EMP_WAGE_PER_HR;
-    		return "Total Employee Hours:"+totalEmpHrs+"	 Total Employee Wage:"+totalEmpWage;
-	} 
+		System.out.println("Total Employee Hours:"+totalEmpHrs+"	 Total Employee Wage:"+totalEmpWage);
+    		return totalEmpWage;
+	}
+	
 	public static void main(String[] args)
 	{
-		Employeewage DMart = new Employeewage("DMart", 20, 10, 100, 25);
-		System.out.println(DMart.computeEmpWage());
-		Employeewage Reliance = new Employeewage("Reliance", 24, 8, 120, 30);
-        	System.out.println(Reliance.computeEmpWage());
-		Employeewage Walmart = new Employeewage("Walmart", 18, 9, 120, 26);
-		System.out.println(Walmart.computeEmpWage());
+    		HashMap<String, Integer> company=new HashMap<String, Integer>();
+		Employeewage DMart = new Employeewage("DMart", 20, 9, 110, 26);
+		company.put("DMart",DMart.computeEmpWage());
+		Employeewage Reliance = new Employeewage("Reliance", 24, 8, 135, 20);
+		company.put("Reliance",Reliance.computeEmpWage());
+		Employeewage Walmart = new Employeewage("Walmart", 20, 9, 120, 26);
+		company.put("Walmart",Walmart.computeEmpWage());
+		System.out.println("DMart : "+company.get("DMart"));
+		System.out.println("Reliance : "+company.get("Reliance"));
+		System.out.println("Walmart : "+company.get("Walmart"));
 	}
 }
