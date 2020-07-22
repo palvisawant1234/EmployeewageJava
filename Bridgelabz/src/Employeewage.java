@@ -1,3 +1,4 @@
+
 import java.util.*;
 class CompanyemployeeWage 
 {
@@ -15,6 +16,7 @@ class CompanyemployeeWage
 	public static HashMap<Integer, Integer> companyWage = new HashMap<Integer, Integer>();
 	public static ArrayList<Integer> Company1 = new ArrayList <Integer>();
 	public static ArrayList<Integer> Company2 = new ArrayList <Integer>();
+	public static HashMap<String, Integer> companyMonthlyWage = new HashMap<>();
 		
 	CompanyemployeeWage(String company, int EMP_RATE_PER_HR, int MAX_HRS_IN_MONTH, int NUM_OF_WORKING_DAYS) 
 	{
@@ -69,12 +71,6 @@ class CompanyemployeeWage
 		return totalEmpWage;
 	}
 
-	public static void dailyWageAndMonthlyWage() 
-	{
-		companyWage.put(employeeDailyWage(), employeeMonthlyWage());
-		entry++;
-	}
-
 	public static void printWage() 
 	{
 		for (int i: companyWage.keySet())
@@ -86,19 +82,31 @@ class CompanyemployeeWage
 		System.out.println(Company1);
 		System.out.println(Company2);
 	}
+	
+	public static void putTotalWage() 
+	{
+		int a=employeeMonthlyWage();
+		companyMonthlyWage.put(company, a);
+		companyWage.put(employeeDailyWage(), a);
+		entry++;
+	}
+	
+	public static void getTotalWage(String company) 
+	{
+		System.out.println(company+" : "+companyMonthlyWage.get(company));
+	}
 }
 
 public class Employeewage 
 {
-	
 	public static void main(String args[])
 	{
-		
 		CompanyemployeeWage company1 = new CompanyemployeeWage("DMart", 20, 110, 26);
-		company1.dailyWageAndMonthlyWage();
+		company1.putTotalWage();
 		CompanyemployeeWage company2 = new CompanyemployeeWage("Reliance", 24, 135, 20);
-		company2.dailyWageAndMonthlyWage();
+		company2.putTotalWage();
 		company2.printWage();
 		company2.printCompanyWage();
+		company2.getTotalWage("DMart");
 	}
 }
